@@ -1,8 +1,8 @@
 package com.aleksandrbogomolov.repository;
 
-import com.aleksandrbogomolov.domain.DeveloperProtos;
+import com.aleksandrbogomolov.domain.Domain;
 
 public interface DeveloperRepository {
 
-    DeveloperProtos.Developer findBySoft(String soft);
+    Domain.Developer findBySoft(Domain.Software soft);
 }

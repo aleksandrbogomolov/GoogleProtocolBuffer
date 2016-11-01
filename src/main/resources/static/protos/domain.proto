@@ -1,0 +1,15 @@
+syntax = "proto3";
+package com.aleksandrbogomolov.domain;
+
+option java_package = "com.aleksandrbogomolov.domain";
+
+message Developer {
+    int32 id = 1;
+    string name = 2;
+    string email = 3;
+    repeated Software soft = 4;
+};
+
+message Software {
+    string name = 1;
+};

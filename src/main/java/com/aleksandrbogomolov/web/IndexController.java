@@ -1,16 +1,14 @@
 package com.aleksandrbogomolov.web;
 
+import com.aleksandrbogomolov.domain.Domain;
 import com.aleksandrbogomolov.repository.DeveloperRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping(value = "/developer")
+@RequestMapping(value = "/")
 public class IndexController {
 
     private DeveloperRepository repository;
@@ -20,9 +18,14 @@ public class IndexController {
         this.repository = repository;
     }
 
-    @RequestMapping(value = "/search/{soft}", method = RequestMethod.GET)
-    public String getDeveloper(@PathVariable(name = "soft") String soft, Model model) {
-        model.addAttribute("dev", repository.findBySoft(soft));
+    @GetMapping
+    public String getIndex() {
         return "index";
+    }
+
+    @PostMapping(value = "/search")
+    public String getDeveloper(Domain.Software soft, Model model) {
+        model.addAttribute("dev", repository.findBySoft(soft));
+        return "response";
     }
 }
