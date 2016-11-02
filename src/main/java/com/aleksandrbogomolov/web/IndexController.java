@@ -24,8 +24,9 @@ public class IndexController {
     }
 
     @PostMapping(value = "/search")
-    public String getDeveloper(Domain.Software soft, Model model) {
-        model.addAttribute("dev", repository.findBySoft(soft));
-        return "response";
+    public Domain.Developer getDeveloper(@RequestBody Domain.Developer.Software soft, Model model) {
+        return repository.findBySoft(soft);
+//        model.addAttribute("dev", repository.findBySoft(soft));
+//        return "response";
     }
 }

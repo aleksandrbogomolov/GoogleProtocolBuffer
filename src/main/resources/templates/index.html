@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <!--suppress ThymeleafVariablesResolveInspection -->
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" ng-app="google-buffer" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>Spring Google Protocol Buffer</title>
 </head>
-<body>
+<body ng-controller="buffer-controller">
 <p></p>
-<form action="" th:action="@{/search}" method="post">
-    <label> Software name
-        <input type="text" name="name"/>
-    </label>
-    <button onclick="getDeveloper(name)">Search</button>
+
+<form>
+    <input type="text" ng-model="name" placeholder="Software name"/>
+    <input type="submit" value="Search" ng-click="getDeveloper()"/>
 </form>
 
-<script th:src="@{/js/jquery-3.0.0.min.js}"></script>
-<script th:src="@{/js/long.min.js}"></script>
+<p required="true">{{dev}}</p>
+
+<script th:src="@{/js/angular.1.5.8.min.js}"></script>
+<!--<script th:src="@{/js/long.min.js}"></script>-->
 <script th:src="@{/js/bytebuffer.min.js}"></script>
 <script th:src="@{/js/protobuf.min.js}"></script>
-<script th:src="@{/js/App.js}"></script>
+<script th:src="@{/js/app.js}"></script>
 
 </body>
 </html>

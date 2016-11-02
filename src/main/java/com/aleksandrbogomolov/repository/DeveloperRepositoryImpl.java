@@ -13,19 +13,19 @@ public class DeveloperRepositoryImpl implements DeveloperRepository {
     private Collection<Domain.Developer> developers = mockRepository();
 
     @Override
-    public Domain.Developer findBySoft(Domain.Software soft) {
+    public Domain.Developer findBySoft(Domain.Developer.Software soft) {
         for (Domain.Developer d : developers) {
-            for (Domain.Software s : d.getSoftList()) {
-                if (soft.equals(s)) return d;
+            for (Domain.Developer.Software s : d.getSoftList()) {
+                if (soft.getName().equals(s.getName())) return d;
             }
         }
         return null;
     }
 
     private Domain.Developer developer(int id, String n, String e, Collection<String> soft) {
-        Collection<Domain.Software> softwares =
+        Collection<Domain.Developer.Software> softwares =
                 soft.stream()
-                    .map(s -> Domain.Software.newBuilder().setName(s).build())
+                    .map(s -> Domain.Developer.Software.newBuilder().setName(s).build())
                     .collect(Collectors.toList());
 
         return Domain.Developer.newBuilder().setId(id).setName(n).setEmail(e).addAllSoft(softwares).build();

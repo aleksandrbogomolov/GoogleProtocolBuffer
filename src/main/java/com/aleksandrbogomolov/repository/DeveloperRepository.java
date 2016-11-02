@@ -4,5 +4,5 @@ import com.aleksandrbogomolov.domain.Domain;
 
 public interface DeveloperRepository {
 
-    Domain.Developer findBySoft(Domain.Software soft);
+    Domain.Developer findBySoft(Domain.Developer.Software soft);
 }
