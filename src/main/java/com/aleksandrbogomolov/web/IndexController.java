@@ -4,7 +4,6 @@ import com.aleksandrbogomolov.domain.Domain;
 import com.aleksandrbogomolov.repository.DeveloperRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -24,9 +23,9 @@ public class IndexController {
     }
 
     @PostMapping(value = "/search")
-    public Domain.Developer getDeveloper(@RequestBody Domain.Developer.Software soft, Model model) {
+    public
+    @ResponseBody
+    Domain.Developer getDeveloper(@RequestBody Domain.Developer.Software soft) {
         return repository.findBySoft(soft);
-//        model.addAttribute("dev", repository.findBySoft(soft));
-//        return "response";
     }
 }

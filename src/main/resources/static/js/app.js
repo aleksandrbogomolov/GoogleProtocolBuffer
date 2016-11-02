@@ -1,3 +1,4 @@
+'use strict';
 var App = angular.module('google-buffer', []);
 
 App.config(['$interpolateProvider', function ($interpolateProvider) {
@@ -7,14 +8,11 @@ App.config(['$interpolateProvider', function ($interpolateProvider) {
 
 var ProtoBuf = dcodeIO.ProtoBuf;
 
-builder = ProtoBuf.loadProtoFile("/protos/domain.proto");
+var builder = ProtoBuf.loadProtoFile("/protos/domain.proto");
 var root = builder.build();
-Developer = root.com.aleksandrbogomolov.domain.Developer;
-Software = root.com.aleksandrbogomolov.domain.Developer.Software;
+var Software = root.com.aleksandrbogomolov.domain.Developer.Software;
 
 App.controller('buffer-controller', ['$scope', '$http', function ($scope, $http) {
-    // $scope.dev = {id: '', name: '', email : '', soft: []};
-    $scope.newSoftware = {name: ""};
 
     $scope.getDeveloper = function () {
         var software = new Software({"name": $scope.name});
@@ -23,7 +21,7 @@ App.controller('buffer-controller', ['$scope', '$http', function ($scope, $http)
         var req = {
             method: 'POST',
             url: '/search',
-            responseType: 'arraybuffer',
+            responseType: 'buffer',
             transformRequest: function (r) {
                 return r;
             },
@@ -34,8 +32,10 @@ App.controller('buffer-controller', ['$scope', '$http', function ($scope, $http)
         };
 
         $http(req).success(function (data) {
-            var dev = Developer.decode(data);
-            // $scope.dev = data;
+            var div = document.getElementById('dev');
+            var p = document.createElement('p');
+            p.innerHTML = 'id:' + data.id + ', name: ' + data.name + ', email: ' + data.email + ', Software: ' + data.soft[0].name + ', ' + data.soft[1].name;
+            div.appendChild(p);
         });
     }
 }]);

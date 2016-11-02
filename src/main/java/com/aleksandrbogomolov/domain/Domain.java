@@ -19,26 +19,38 @@ public final class Domain {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional int32 id = 1;</code>
+     * <code>required int32 id = 1;</code>
+     */
+    boolean hasId();
+    /**
+     * <code>required int32 id = 1;</code>
      */
     int getId();
 
     /**
-     * <code>optional string name = 2;</code>
+     * <code>required string name = 2;</code>
+     */
+    boolean hasName();
+    /**
+     * <code>required string name = 2;</code>
      */
     java.lang.String getName();
     /**
-     * <code>optional string name = 2;</code>
+     * <code>required string name = 2;</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
-     * <code>optional string email = 3;</code>
+     * <code>required string email = 3;</code>
+     */
+    boolean hasEmail();
+    /**
+     * <code>required string email = 3;</code>
      */
     java.lang.String getEmail();
     /**
-     * <code>optional string email = 3;</code>
+     * <code>required string email = 3;</code>
      */
     com.google.protobuf.ByteString
         getEmailBytes();
@@ -88,7 +100,7 @@ public final class Domain {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private Developer(
         com.google.protobuf.CodedInputStream input,
@@ -96,6 +108,8 @@ public final class Domain {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -105,26 +119,27 @@ public final class Domain {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
                 done = true;
               }
               break;
             }
             case 8: {
-
+              bitField0_ |= 0x00000001;
               id_ = input.readInt32();
               break;
             }
             case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              name_ = bs;
               break;
             }
             case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              email_ = s;
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              email_ = bs;
               break;
             }
             case 34: {
@@ -133,7 +148,7 @@ public final class Domain {
                 mutable_bitField0_ |= 0x00000008;
               }
               soft_.add(
-                  input.readMessage(com.aleksandrbogomolov.domain.Domain.Developer.Software.parser(), extensionRegistry));
+                  input.readMessage(com.aleksandrbogomolov.domain.Domain.Developer.Software.PARSER, extensionRegistry));
               break;
             }
           }
@@ -147,6 +162,7 @@ public final class Domain {
         if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
           soft_ = java.util.Collections.unmodifiableList(soft_);
         }
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -167,11 +183,15 @@ public final class Domain {
         com.google.protobuf.MessageOrBuilder {
 
       /**
-       * <code>optional string name = 1;</code>
+       * <code>required string name = 1;</code>
+       */
+      boolean hasName();
+      /**
+       * <code>required string name = 1;</code>
        */
       java.lang.String getName();
       /**
-       * <code>optional string name = 1;</code>
+       * <code>required string name = 1;</code>
        */
       com.google.protobuf.ByteString
           getNameBytes();
@@ -194,7 +214,7 @@ public final class Domain {
       @java.lang.Override
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
-        return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+        return this.unknownFields;
       }
       private Software(
           com.google.protobuf.CodedInputStream input,
@@ -202,6 +222,8 @@ public final class Domain {
           throws com.google.protobuf.InvalidProtocolBufferException {
         this();
         int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
         try {
           boolean done = false;
           while (!done) {
@@ -211,15 +233,16 @@ public final class Domain {
                 done = true;
                 break;
               default: {
-                if (!input.skipField(tag)) {
+                if (!parseUnknownField(input, unknownFields,
+                                       extensionRegistry, tag)) {
                   done = true;
                 }
                 break;
               }
               case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                name_ = s;
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000001;
+                name_ = bs;
                 break;
               }
             }
@@ -230,6 +253,7 @@ public final class Domain {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
         } finally {
+          this.unknownFields = unknownFields.build();
           makeExtensionsImmutable();
         }
       }
@@ -245,10 +269,17 @@ public final class Domain {
                 com.aleksandrbogomolov.domain.Domain.Developer.Software.class, com.aleksandrbogomolov.domain.Domain.Developer.Software.Builder.class);
       }
 
+      private int bitField0_;
       public static final int NAME_FIELD_NUMBER = 1;
       private volatile java.lang.Object name_;
       /**
-       * <code>optional string name = 1;</code>
+       * <code>required string name = 1;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string name = 1;</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -258,12 +289,14 @@ public final class Domain {
           com.google.protobuf.ByteString bs = 
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          name_ = s;
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
           return s;
         }
       }
       /**
-       * <code>optional string name = 1;</code>
+       * <code>required string name = 1;</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -285,15 +318,20 @@ public final class Domain {
         if (isInitialized == 1) return true;
         if (isInitialized == 0) return false;
 
+        if (!hasName()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
         memoizedIsInitialized = 1;
         return true;
       }
 
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        if (!getNameBytes().isEmpty()) {
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
         }
+        unknownFields.writeTo(output);
       }
 
       public int getSerializedSize() {
@@ -301,9 +339,10 @@ public final class Domain {
         if (size != -1) return size;
 
         size = 0;
-        if (!getNameBytes().isEmpty()) {
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
         }
+        size += unknownFields.getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -320,8 +359,12 @@ public final class Domain {
         com.aleksandrbogomolov.domain.Domain.Developer.Software other = (com.aleksandrbogomolov.domain.Domain.Developer.Software) obj;
 
         boolean result = true;
-        result = result && getName()
-            .equals(other.getName());
+        result = result && (hasName() == other.hasName());
+        if (hasName()) {
+          result = result && getName()
+              .equals(other.getName());
+        }
+        result = result && unknownFields.equals(other.unknownFields);
         return result;
       }
 
@@ -332,8 +375,10 @@ public final class Domain {
         }
         int hash = 41;
         hash = (19 * hash) + getDescriptorForType().hashCode();
-        hash = (37 * hash) + NAME_FIELD_NUMBER;
-        hash = (53 * hash) + getName().hashCode();
+        if (hasName()) {
+          hash = (37 * hash) + NAME_FIELD_NUMBER;
+          hash = (53 * hash) + getName().hashCode();
+        }
         hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
         return hash;
@@ -453,7 +498,7 @@ public final class Domain {
         public Builder clear() {
           super.clear();
           name_ = "";
-
+          bitField0_ = (bitField0_ & ~0x00000001);
           return this;
         }
 
@@ -476,7 +521,13 @@ public final class Domain {
 
         public com.aleksandrbogomolov.domain.Domain.Developer.Software buildPartial() {
           com.aleksandrbogomolov.domain.Domain.Developer.Software result = new com.aleksandrbogomolov.domain.Domain.Developer.Software(this);
+          int from_bitField0_ = bitField0_;
+          int to_bitField0_ = 0;
+          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+            to_bitField0_ |= 0x00000001;
+          }
           result.name_ = name_;
+          result.bitField0_ = to_bitField0_;
           onBuilt();
           return result;
         }
@@ -518,15 +569,20 @@ public final class Domain {
 
         public Builder mergeFrom(com.aleksandrbogomolov.domain.Domain.Developer.Software other) {
           if (other == com.aleksandrbogomolov.domain.Domain.Developer.Software.getDefaultInstance()) return this;
-          if (!other.getName().isEmpty()) {
+          if (other.hasName()) {
+            bitField0_ |= 0x00000001;
             name_ = other.name_;
             onChanged();
           }
+          this.mergeUnknownFields(other.unknownFields);
           onChanged();
           return this;
         }
 
         public final boolean isInitialized() {
+          if (!hasName()) {
+            return false;
+          }
           return true;
         }
 
@@ -547,10 +603,17 @@ public final class Domain {
           }
           return this;
         }
+        private int bitField0_;
 
         private java.lang.Object name_ = "";
         /**
-         * <code>optional string name = 1;</code>
+         * <code>required string name = 1;</code>
+         */
+        public boolean hasName() {
+          return ((bitField0_ & 0x00000001) == 0x00000001);
+        }
+        /**
+         * <code>required string name = 1;</code>
          */
         public java.lang.String getName() {
           java.lang.Object ref = name_;
@@ -558,14 +621,16 @@ public final class Domain {
             com.google.protobuf.ByteString bs =
                 (com.google.protobuf.ByteString) ref;
             java.lang.String s = bs.toStringUtf8();
-            name_ = s;
+            if (bs.isValidUtf8()) {
+              name_ = s;
+            }
             return s;
           } else {
             return (java.lang.String) ref;
           }
         }
         /**
-         * <code>optional string name = 1;</code>
+         * <code>required string name = 1;</code>
          */
         public com.google.protobuf.ByteString
             getNameBytes() {
@@ -581,49 +646,48 @@ public final class Domain {
           }
         }
         /**
-         * <code>optional string name = 1;</code>
+         * <code>required string name = 1;</code>
          */
         public Builder setName(
             java.lang.String value) {
           if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000001;
           name_ = value;
           onChanged();
           return this;
         }
         /**
-         * <code>optional string name = 1;</code>
+         * <code>required string name = 1;</code>
          */
         public Builder clearName() {
-          
+          bitField0_ = (bitField0_ & ~0x00000001);
           name_ = getDefaultInstance().getName();
           onChanged();
           return this;
         }
         /**
-         * <code>optional string name = 1;</code>
+         * <code>required string name = 1;</code>
          */
         public Builder setNameBytes(
             com.google.protobuf.ByteString value) {
           if (value == null) {
     throw new NullPointerException();
   }
-  checkByteStringIsUtf8(value);
-          
+  bitField0_ |= 0x00000001;
           name_ = value;
           onChanged();
           return this;
         }
         public final Builder setUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return this;
+          return super.setUnknownFields(unknownFields);
         }
 
         public final Builder mergeUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return this;
+          return super.mergeUnknownFields(unknownFields);
         }
 
 
@@ -640,7 +704,7 @@ public final class Domain {
         return DEFAULT_INSTANCE;
       }
 
-      private static final com.google.protobuf.Parser<Software>
+      @java.lang.Deprecated public static final com.google.protobuf.Parser<Software>
           PARSER = new com.google.protobuf.AbstractParser<Software>() {
         public Software parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
@@ -669,7 +733,13 @@ public final class Domain {
     public static final int ID_FIELD_NUMBER = 1;
     private int id_;
     /**
-     * <code>optional int32 id = 1;</code>
+     * <code>required int32 id = 1;</code>
+     */
+    public boolean hasId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 id = 1;</code>
      */
     public int getId() {
       return id_;
@@ -678,7 +748,13 @@ public final class Domain {
     public static final int NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object name_;
     /**
-     * <code>optional string name = 2;</code>
+     * <code>required string name = 2;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string name = 2;</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -688,12 +764,14 @@ public final class Domain {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        name_ = s;
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
         return s;
       }
     }
     /**
-     * <code>optional string name = 2;</code>
+     * <code>required string name = 2;</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -712,7 +790,13 @@ public final class Domain {
     public static final int EMAIL_FIELD_NUMBER = 3;
     private volatile java.lang.Object email_;
     /**
-     * <code>optional string email = 3;</code>
+     * <code>required string email = 3;</code>
+     */
+    public boolean hasEmail() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required string email = 3;</code>
      */
     public java.lang.String getEmail() {
       java.lang.Object ref = email_;
@@ -722,12 +806,14 @@ public final class Domain {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        email_ = s;
+        if (bs.isValidUtf8()) {
+          email_ = s;
+        }
         return s;
       }
     }
     /**
-     * <code>optional string email = 3;</code>
+     * <code>required string email = 3;</code>
      */
     public com.google.protobuf.ByteString
         getEmailBytes() {
@@ -784,24 +870,43 @@ public final class Domain {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasEmail()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      for (int i = 0; i < getSoftCount(); i++) {
+        if (!getSoft(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (id_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, id_);
       }
-      if (!getNameBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
-      if (!getEmailBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, email_);
       }
       for (int i = 0; i < soft_.size(); i++) {
         output.writeMessage(4, soft_.get(i));
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -809,20 +914,21 @@ public final class Domain {
       if (size != -1) return size;
 
       size = 0;
-      if (id_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, id_);
       }
-      if (!getNameBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
-      if (!getEmailBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, email_);
       }
       for (int i = 0; i < soft_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, soft_.get(i));
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -839,14 +945,24 @@ public final class Domain {
       com.aleksandrbogomolov.domain.Domain.Developer other = (com.aleksandrbogomolov.domain.Domain.Developer) obj;
 
       boolean result = true;
-      result = result && (getId()
-          == other.getId());
-      result = result && getName()
-          .equals(other.getName());
-      result = result && getEmail()
-          .equals(other.getEmail());
+      result = result && (hasId() == other.hasId());
+      if (hasId()) {
+        result = result && (getId()
+            == other.getId());
+      }
+      result = result && (hasName() == other.hasName());
+      if (hasName()) {
+        result = result && getName()
+            .equals(other.getName());
+      }
+      result = result && (hasEmail() == other.hasEmail());
+      if (hasEmail()) {
+        result = result && getEmail()
+            .equals(other.getEmail());
+      }
       result = result && getSoftList()
           .equals(other.getSoftList());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -857,12 +973,18 @@ public final class Domain {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptorForType().hashCode();
-      hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId();
-      hash = (37 * hash) + NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + EMAIL_FIELD_NUMBER;
-      hash = (53 * hash) + getEmail().hashCode();
+      if (hasId()) {
+        hash = (37 * hash) + ID_FIELD_NUMBER;
+        hash = (53 * hash) + getId();
+      }
+      if (hasName()) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+      }
+      if (hasEmail()) {
+        hash = (37 * hash) + EMAIL_FIELD_NUMBER;
+        hash = (53 * hash) + getEmail().hashCode();
+      }
       if (getSoftCount() > 0) {
         hash = (37 * hash) + SOFT_FIELD_NUMBER;
         hash = (53 * hash) + getSoftList().hashCode();
@@ -987,11 +1109,11 @@ public final class Domain {
       public Builder clear() {
         super.clear();
         id_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         name_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         email_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000004);
         if (softBuilder_ == null) {
           soft_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000008);
@@ -1022,8 +1144,17 @@ public final class Domain {
         com.aleksandrbogomolov.domain.Domain.Developer result = new com.aleksandrbogomolov.domain.Domain.Developer(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.id_ = id_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
         result.name_ = name_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
         result.email_ = email_;
         if (softBuilder_ == null) {
           if (((bitField0_ & 0x00000008) == 0x00000008)) {
@@ -1076,14 +1207,16 @@ public final class Domain {
 
       public Builder mergeFrom(com.aleksandrbogomolov.domain.Domain.Developer other) {
         if (other == com.aleksandrbogomolov.domain.Domain.Developer.getDefaultInstance()) return this;
-        if (other.getId() != 0) {
+        if (other.hasId()) {
           setId(other.getId());
         }
-        if (!other.getName().isEmpty()) {
+        if (other.hasName()) {
+          bitField0_ |= 0x00000002;
           name_ = other.name_;
           onChanged();
         }
-        if (!other.getEmail().isEmpty()) {
+        if (other.hasEmail()) {
+          bitField0_ |= 0x00000004;
           email_ = other.email_;
           onChanged();
         }
@@ -1113,11 +1246,26 @@ public final class Domain {
             }
           }
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
+        if (!hasId()) {
+          return false;
+        }
+        if (!hasName()) {
+          return false;
+        }
+        if (!hasEmail()) {
+          return false;
+        }
+        for (int i = 0; i < getSoftCount(); i++) {
+          if (!getSoft(i).isInitialized()) {
+            return false;
+          }
+        }
         return true;
       }
 
@@ -1142,25 +1290,31 @@ public final class Domain {
 
       private int id_ ;
       /**
-       * <code>optional int32 id = 1;</code>
+       * <code>required int32 id = 1;</code>
+       */
+      public boolean hasId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 id = 1;</code>
        */
       public int getId() {
         return id_;
       }
       /**
-       * <code>optional int32 id = 1;</code>
+       * <code>required int32 id = 1;</code>
        */
       public Builder setId(int value) {
-        
+        bitField0_ |= 0x00000001;
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 id = 1;</code>
+       * <code>required int32 id = 1;</code>
        */
       public Builder clearId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         id_ = 0;
         onChanged();
         return this;
@@ -1168,7 +1322,13 @@ public final class Domain {
 
       private java.lang.Object name_ = "";
       /**
-       * <code>optional string name = 2;</code>
+       * <code>required string name = 2;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string name = 2;</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -1176,14 +1336,16 @@ public final class Domain {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          name_ = s;
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>optional string name = 2;</code>
+       * <code>required string name = 2;</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -1199,37 +1361,36 @@ public final class Domain {
         }
       }
       /**
-       * <code>optional string name = 2;</code>
+       * <code>required string name = 2;</code>
        */
       public Builder setName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000002;
         name_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string name = 2;</code>
+       * <code>required string name = 2;</code>
        */
       public Builder clearName() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         name_ = getDefaultInstance().getName();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string name = 2;</code>
+       * <code>required string name = 2;</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  checkByteStringIsUtf8(value);
-        
+  bitField0_ |= 0x00000002;
         name_ = value;
         onChanged();
         return this;
@@ -1237,7 +1398,13 @@ public final class Domain {
 
       private java.lang.Object email_ = "";
       /**
-       * <code>optional string email = 3;</code>
+       * <code>required string email = 3;</code>
+       */
+      public boolean hasEmail() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required string email = 3;</code>
        */
       public java.lang.String getEmail() {
         java.lang.Object ref = email_;
@@ -1245,14 +1412,16 @@ public final class Domain {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          email_ = s;
+          if (bs.isValidUtf8()) {
+            email_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>optional string email = 3;</code>
+       * <code>required string email = 3;</code>
        */
       public com.google.protobuf.ByteString
           getEmailBytes() {
@@ -1268,37 +1437,36 @@ public final class Domain {
         }
       }
       /**
-       * <code>optional string email = 3;</code>
+       * <code>required string email = 3;</code>
        */
       public Builder setEmail(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000004;
         email_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string email = 3;</code>
+       * <code>required string email = 3;</code>
        */
       public Builder clearEmail() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         email_ = getDefaultInstance().getEmail();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string email = 3;</code>
+       * <code>required string email = 3;</code>
        */
       public Builder setEmailBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  checkByteStringIsUtf8(value);
-        
+  bitField0_ |= 0x00000004;
         email_ = value;
         onChanged();
         return this;
@@ -1545,12 +1713,12 @@ public final class Domain {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFields(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -1567,7 +1735,7 @@ public final class Domain {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<Developer>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Developer>
         PARSER = new com.google.protobuf.AbstractParser<Developer>() {
       public Developer parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -1613,11 +1781,11 @@ public final class Domain {
     java.lang.String[] descriptorData = {
       "\n-src/main/resources/static/protos/domai" +
       "n.proto\022\035com.aleksandrbogomolov.domain\"\217" +
-      "\001\n\tDeveloper\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\r" +
-      "\n\005email\030\003 \001(\t\022?\n\004soft\030\004 \003(\01321.com.aleksa" +
+      "\001\n\tDeveloper\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\r" +
+      "\n\005email\030\003 \002(\t\022?\n\004soft\030\004 \003(\01321.com.aleksa" +
       "ndrbogomolov.domain.Developer.Software\032\030" +
-      "\n\010Software\022\014\n\004name\030\001 \001(\tB\037\n\035com.aleksand" +
-      "rbogomolov.domainb\006proto3"
+      "\n\010Software\022\014\n\004name\030\001 \002(\tB\037\n\035com.aleksand" +
+      "rbogomolov.domain"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

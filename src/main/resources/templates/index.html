@@ -6,17 +6,16 @@
     <title>Spring Google Protocol Buffer</title>
 </head>
 <body ng-controller="buffer-controller">
-<p></p>
+<p>Available values: RESTService, SpringApp, ServerApp, GradlePlugin, Chat, ConsoleReader</p>
 
 <form>
     <input type="text" ng-model="name" placeholder="Software name"/>
     <input type="submit" value="Search" ng-click="getDeveloper()"/>
 </form>
 
-<p required="true">{{dev}}</p>
+<div id="dev"></div>
 
 <script th:src="@{/js/angular.1.5.8.min.js}"></script>
-<!--<script th:src="@{/js/long.min.js}"></script>-->
 <script th:src="@{/js/bytebuffer.min.js}"></script>
 <script th:src="@{/js/protobuf.min.js}"></script>
 <script th:src="@{/js/app.js}"></script>
